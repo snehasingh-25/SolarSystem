@@ -37,9 +37,11 @@ lights.planet1.position.set(50, 0, 0);
 lights.planet2.position.set(-50, 0, 0);
 
 Object.values(lights).forEach(light => scene.add(light));
+const exrPath = import.meta.env.BASE_URL + 'assets/models/sky4.exr';
+const glbPath = import.meta.env.BASE_URL + 'assets/models/solar_system_animation.glb';
 
 // Load environment map
-new EXRLoader().load('/assets/models/sky4.exr', texture => {
+new EXRLoader().load(exrPath, texture => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     texture.encoding = THREE.LinearEncoding;
     texture.minFilter = texture.magFilter = THREE.LinearFilter;
@@ -73,7 +75,7 @@ const planetNames = {
 
 // Load and setup solar system model
 new GLTFLoader().load(
-    '/assets/models/solar_system_animation.glb',
+    glbPath,
     gltf => {
         solarSystem = gltf.scene;
 
