@@ -167,7 +167,7 @@ knowMoreBtn.addEventListener('click', () => {
     const objectName = knowMoreBtn.dataset.planetName;
     console.log(objectName);
     if (objectName) {
-        window.location.href = `src/planet-info.html?planet=${encodeURIComponent(objectName)}`;
+        window.location.href = `planet-info.html?planet=${encodeURIComponent(objectName)}`;
     }
 });
 
